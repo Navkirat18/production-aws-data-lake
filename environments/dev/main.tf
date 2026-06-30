@@ -31,3 +31,12 @@ module "iam" {
   project_name = var.project_name
   environment  = var.environment
 }
+module "glue" {
+  source = "../../modules/glue"
+
+  project_name = var.project_name
+  environment  = var.environment
+
+  bucket_name   = module.s3.raw_bucket_name
+  glue_role_arn = module.iam.glue_role_arn
+}
