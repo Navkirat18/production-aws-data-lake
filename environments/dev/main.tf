@@ -25,3 +25,9 @@ module "s3" {
 
   kms_key_arn = module.kms.kms_key_arn
 }
+module "iam" {
+  source = "../../modules/iam"
+
+  project_name = var.project_name
+  environment  = var.environment
+}
