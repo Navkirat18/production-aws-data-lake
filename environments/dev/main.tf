@@ -11,3 +11,9 @@ module "vpc" {
   private_subnet_1_cidr = var.private_subnet_1_cidr
   private_subnet_2_cidr = var.private_subnet_2_cidr
 }
+module "kms" {
+  source = "../../modules/kms"
+
+  project_name = var.project_name
+  environment  = var.environment
+}
